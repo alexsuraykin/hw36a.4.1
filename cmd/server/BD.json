@@ -1,0 +1,7 @@
+{
+  "name": "rss",
+  "port": 5432,
+  "table:": "posts",
+  "user": "sandbox",
+  "password": "sandbox"
+}

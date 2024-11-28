@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Агрегатор новостей</title>
+    <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+<h1>Агрегатор новостей:</h1>
+<ul></ul>
+
+<script>
+    const listEl = document.querySelector('ul')
+    fetch('./news/10')
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            data.forEach(post => {
+                listEl.insertAdjacentHTML('beforeend',`<li><h2><a href="${post.Link}">${post.Title}</a></h2><br><div>Опубликовано: ${new Date(post.PubTime * 1000).toLocaleString()}</div><div>ID: ${post.ID}</div><br><div>${post.Content}</div></li>`)
+            });
+        });
+</script>
+</body>
+</html>
